@@ -1,0 +1,14 @@
+.container-center {
+  max-width: 100px;
+  margin: 0 auto;
+  margin-top: 16px;
+
+  &.no-margin-top {
+    margin-top: 0;
+  }
+
+  &.wide {
+    max-width: unset;
+    margin: 0;
+  }
+}

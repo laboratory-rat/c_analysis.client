@@ -1,0 +1,5 @@
+@import "./mixin";
+
+@include colorize("material-button.button-danger", $mat-red);
+@include colorize("material-button.button-accent", $mat-blue);
+@include colorize("material-button.button-primary", $mat-amber);

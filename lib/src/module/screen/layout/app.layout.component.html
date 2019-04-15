@@ -1,0 +1,42 @@
+<material-drawer persistent #drawer="drawer" class='drawer' [class.hidden]='!isAuthorized'>
+    <material-list *deferredContent>
+        <!-- Position the start of the drawer content correctly -->
+        <div group class="mat-drawer-spacer"></div>
+        <!-- Here is a group without a label -->
+        <div group>
+            <material-list-item [routerLink]='AppRoute.dashboard.toUrl()'>
+                <material-icon icon="inbox"></material-icon>Dashboard
+            </material-list-item>
+            <material-list-item [routerLink]='AppRoute.agentList.toUrl()'>
+                <material-icon icon="inbox"></material-icon>Agents
+            </material-list-item>
+        </div>
+    </material-list>
+</material-drawer>
+<material-content [class.no-drawer]='!isAuthorized'>
+    <material-progress *ngIf='isLoading' indeterminate class='top-loader'></material-progress>
+    <header class="material-header shadow" dense-header shadow>
+        <div class="material-header-row">
+            <material-button [class.hidden]='!isAuthorized' icon class="material-drawer-button"
+                (trigger)="drawer.toggle()">
+                <material-icon icon="menu"></material-icon>
+            </material-button>
+            <span class="material-header-title" [routerLink]='AppRoute.about.toUrl()'>Crypto analysis</span>
+            <div class="material-spacer"></div>
+            <nav class="material-navigation" *ngIf='!isAuthorized' (click)='goToLogin()'>
+                SignIn
+            </nav>
+            <nav *ngIf='isAuthorized' (click)='logout()' class="material-navigation">
+                Logout
+            </nav>
+        </div>
+    </header>
+    <div class="mr-container" [ngClass]='{"no-padding": isWide}'>
+        <div class="mr-container__inner">
+            <router-outlet [routes]="AppRoute.all"></router-outlet>
+        </div>
+    </div>
+    <div class='footer'>
+        <span>Copyright © Mad rat LLP 2018 - 2019 49 Station Road, Polegate, England</span>
+    </div>
+</material-content>

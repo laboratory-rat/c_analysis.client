@@ -1,0 +1,33 @@
+targets:
+  $default:
+    builders:
+      json_serializable:
+        options:
+          # Options configure how source code is generated for every
+          # `@JsonSerializable`-annotated class in the package.
+          #
+          # The default value for each is listed.
+          #
+          # For usage information, reference the corresponding field in
+          # `JsonSerializableGenerator`.
+          any_map: false
+          checked: false
+          create_factory: true
+          create_to_json: true
+          disallow_unrecognized_keys: false
+          explicit_to_json: false
+          field_rename: none
+          generate_to_json_function: true
+          include_if_null: true
+          nullable: true
+          use_wrappers: false
+      build_web_compilers|entrypoint:
+        # These are globs for the entrypoints you want to compile.
+        generate_for:
+        - test/**.browser_test.dart
+        - web/**.dart
+        options:
+          #compiler: dart2js
+          # List any dart2js specific args here, or omit it.
+          #dart2js_args:
+          #  - -O2

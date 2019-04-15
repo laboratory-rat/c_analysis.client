@@ -1,0 +1,25 @@
+.main-card {
+  padding: 8px 16px;
+
+  header {
+    display: flex;
+  }
+  main {
+    width: 100%;
+    .top-tools {
+      display: flex;
+      justify-content: flex-end;
+    }
+    .chart-holder {
+      height: 400px;
+      #chart-canvas {
+        width: 100%;
+      }
+    }
+
+    .bottom-tools {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+}
